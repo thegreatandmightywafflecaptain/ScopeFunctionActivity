@@ -38,12 +38,9 @@ class MainActivity : AppCompatActivity() {
 
     // Create a view from an item in a collection, but recycle if possible (similar to an AdapterView's adapter)
     private fun getView(position: Int, recycledView: View?, collection: List<Int>, context: Context): View = with(this as TextView) {
-         if(recycledView != null) recycledView as TextView
-         else {
-            TextView(context)
-            this.setPadding(5, 10, 10, 0)
-            this.textSize = 22f
-        }
+         if(recycledView != null) (recycledView as TextView) else {
+             TextView(context); this.setPadding(5, 10, 10, 0); this.textSize = 22f;
+         }
 
         this.text = collection[position].toString()
 
